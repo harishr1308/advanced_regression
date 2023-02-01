@@ -1,0 +1,55 @@
+1) What is the optimal value of alpha for ridge and lasso regression? What will be the changes in the model if you choose double the value of alpha for both ridge and lasso? What will be the most important predictor variables after the change is implemented?
+-> The optimal value of alpha for ridge is 2 and lasso regression it's 0.001 . With this alpha the R2 of model was approximately 0,83.
+-> After doubling the value of alpha for noth ridge and lasso, the prediction accuracy remains around 0.82 but there is a small change in the co-efficient value . 
+
+
+
+
+
+
+2)You have determined the optimal value of lambda for ridge and lasso regression during the assignment. Now, which one will you choose to apply and why?
+-> The  optimal value of lambda for ridge and lasso is following :-
+1:-ridge -2 
+2:-lasso - 0.0001
+-> The Mean Squared Error of both the models are the same :
+1:- Ridge - 0.001839609787924262
+2:- lasso - 0.0018634152629407766
+-> The Mean Squared Error of both the models are almost the same.
+-> since Lasso helps in feature reduction , Lasso has a better edge over Ridge ans should be used as the final model.
+
+
+
+
+
+3)After building the model, you realised that the five most important predictor variables in the lasso model are not available in the incoming data. You will now have to create another model excluding the five most important predictor variables. Which are the five most important predictor variables now?
+-> The five most important predictor variables in the current Lasso model:-
+1. Total_sqr_footage
+2. GarageArea
+3. TotrmsAbvGrd
+4. OverallCond
+5. LotArea
+-> We build Lasso model in the jupyter notebook after removing these attributes from the dataset.
+-> The R2 of the new model without the top 5 predictors drops to 0.72 
+-> The Mean Squared Error increases to 0.0028575670906382538
+
+
+
+
+
+4)How can you make sure that a model is robust and generalisable? What are the implications of the same for the accuracy of the model and why?
+-> As per, Occam's Razor- given two models that show similar "performance" in the finit training or test data, we should pick the one that makes fewer on the test data dur to following reasons:-
+1. simpler models are usually more "generic" and are morre widely applicable 
+2. simpler models require fewer training samples for effective training than the more complex ones and hence are easier to train
+3. simpler models are more robust
+3.a) complext models tend to change wildly with changes in the training data set 
+3.b) simple models have low variance, high bias and complex models have low bias, high variance
+3.c) simpler models make more errors in the training set. complex models lead to overfitting- They work very well for training samples. fail miserably when applied to other test samples
+-> Therefore, to mae the model more robust and generalisable, make the model simple but not simpler which will not be of any use.
+-> Regularization can be used to make the model simpler. Regularization helps to strike the delicate balance between keeping the model simple and note making it too nave to be of any us. For regression ,Regularization involves adding a Regularization term to the cost that adds up to absolute values or the Squares of the parameters of the model.
+Also , Making a model smple leads to Bias-variance Trade=off:
+1. A complex model will need to change for every little change in the dataset and hence us very unstable and extremely sensitive to any changes in the training data.
+2. A simpler model that abstracts out some pattern followed by the data points given is unlikelyto change wildly even if more points are added or removed.
+-> Bias quantifies how accurate is the model likely to be on the test data. A complex model can do an accurate job prediction provided there is enough training data.
+-> models that are too naive, for e.g., one that gives same answet to all test inputs and makes no discrimination whatsoever has a very large bias as its expectef error across all test inputs are very high/
+-> variance refers to the degree of changes in the model itself with respect to changes in the training data.
+-> Thus accuracy of the model can be maintaind by keeping the balance between Bias and variance as it minimizes the total error.
